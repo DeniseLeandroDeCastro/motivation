@@ -1,8 +1,11 @@
-package com.example.motivation
+package com.example.motivation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.motivation.infrastructure.MotivationConstants
+import com.example.motivation.R
+import com.example.motivation.infrastructure.SecurityPreferences
 import com.example.motivation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -34,7 +37,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     //Recuperando o nome do usuário que foi salvo na classe SecurityPreferences
     private fun handleUserName() {
-        val name = SecurityPreferences(this).getString("USER_NAME")
+        val name = SecurityPreferences(this).getString(MotivationConstants.KEY.USER_NAME)
         binding.textUserName.text = "Olá, $name!"
     }
 }
