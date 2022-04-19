@@ -13,6 +13,7 @@ import com.example.motivation.databinding.ActivityUserBinding
 class UserActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityUserBinding
+    private lateinit var securityPreferences: SecurityPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +25,11 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
 
         supportActionBar?.hide()
 
+        // Inicializa variáveis da classe
+        securityPreferences = SecurityPreferences(this)
+
+        // Acesso aos elementos de interface)
+        binding.buttonSave.setOnClickListener(this)
         verifyUserName()
     }
 
@@ -42,17 +48,15 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handleSave() {
-        val name = binding.editName.text.toString()
-        if (name != "") {
-
+        val name: String = binding.editName.text.toString()
+        if (name == "") {
+            Toast.makeText(this, getString(R.string.validation_mandatory_name),
+                Toast.LENGTH_LONG).show()
+        } else {
             //Salvando o nome do usuário
-            SecurityPreferences(this).storeString(MotivationConstants.KEY.USER_NAME, name)
+            securityPreferences.storeString(MotivationConstants.KEY.USER_NAME, name)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-        } else {
-            Toast.makeText(this,
-                R.string.validartion_mandatory_name,
-                Toast.LENGTH_SHORT).show()
         }
     }
 }
