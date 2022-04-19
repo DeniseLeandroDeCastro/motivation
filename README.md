@@ -8,9 +8,10 @@ A tela inicial é a activity_user, onde após o preenchimento do nome e clique n
 Nessa tela, o usuário pode escolher outra frase para ler, clicando no botão "Nova frase".
 <div align="middle"></br>
 
-<img src="https://user-images.githubusercontent.com/29150094/163713629-29dd7ed7-66af-4991-afb1-03a769ddeb75.png" width="250" height="450" /></br>
+<img src="https://user-images.githubusercontent.com/29150094/163713629-29dd7ed7-66af-4991-afb1-03a769ddeb75.png" width="250" height="450" /><img src="https://user-images.githubusercontent.com/29150094/163900910-711967ec-663a-43bd-b03a-76cebb701a4f.png" width="250" height="450" /></br>
   
-  Salvando o nome do usuário utilizando SharedPreferences.
+  Salvando o nome do usuário utilizando SharedPreferences e exibindo as frases de acordo com a categoria escolhida.
 </div>
+
 
 
